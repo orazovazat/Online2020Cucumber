@@ -6,11 +6,10 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        features = {
-                "src/test/resources/features"
-        },
-        glue = {"com/vytrack/step_definitions/LoginStepDefinitions.java"},
-        dryRun = true
+       tags = {"@storemanager or @negative"},  // ~ or not before tag ignore scenario
+        features = {"src/test/resources/features"},
+        glue = {"com/vytrack/step_definitions"},
+        dryRun = false
 )
 public class CukesRunner {
 }

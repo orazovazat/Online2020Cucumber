@@ -38,11 +38,16 @@ public class LoginStepDefinitions {
         Assert.assertEquals(expected, pages.loginPage().getErrorMessage());
     }
 
-    @Then("user quits")
-    public void user_quits() {
-        Driver.closeDriver();
+    @Then("user logs in as a driver")
+    public void user_logs_in_as_a_driver() {
+        String username = ConfigurationReader.getProperty("driverusername");
+        String password = ConfigurationReader.getProperty("driverpassword");
+        pages.loginPage().login(username, password);
     }
 
-
+    @When("user logs in as a {string}")
+    public void user_logs_in_as_a(String role) {
+        pages.loginPage().login(role);
+    }
 
 }

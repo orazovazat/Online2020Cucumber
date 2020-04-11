@@ -6,7 +6,9 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-       tags = {"@storemanager or @negative"},  // ~ or not before tag ignore scenario
+
+        plugin = {"html:target/default-cucumber-reports"},
+        tags = {"@VYT-4121"},                                     // ~ or not before tag ignore scenario
         features = {"src/test/resources/features"},
         glue = {"com/vytrack/step_definitions"},
         dryRun = false

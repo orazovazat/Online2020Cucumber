@@ -10,10 +10,10 @@ import org.junit.runner.RunWith;
         plugin = {
                 "json:target/cucumber.json",
                 "html:target/default-cucumber-reports"},
-        tags = {"@map_example"},                                     // ~ or not before tag ignore scenario
+        tags = {"@create_a_car_with_list_of_maps"},                                     // ~ or not before tag ignore scenario
         features = {"src/test/resources/features"},
         glue = {"com/vytrack/step_definitions"},
-        dryRun = true
+        dryRun = false
 )
 public class CukesRunner {
 }

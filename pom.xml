@@ -73,9 +73,9 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.22.2</version>
                 <configuration>
-<!--                    <parallel>classes</parallel>-->
-<!--                    <threadCount>4</threadCount>-->
-<!--                    <forkMode>perthread</forkMode>-->
+                   <parallel>classes</parallel>
+                   <threadCount>4</threadCount>
+                   <forkMode>perthread</forkMode>
                     <runOrder>alphabetical</runOrder>
                     <includes>
                         <include>**/CukesRunner*.java</include>

@@ -76,10 +76,10 @@
                    <parallel>classes</parallel>
                    <threadCount>4</threadCount>
                    <forkMode>perthread</forkMode>
-                    <runOrder>alphabetical</runOrder>
+<!--                     <runOrder>alphabetical</runOrder> -->
                     <includes>
                         <include>**/CukesRunner*.java</include>
-                        <include>**/FailedRunner*.java</include>
+<!--                         <include>**/FailedRunner*.java</include> -->
                     </includes>
                     <testFailureIgnore>true</testFailureIgnore>
                 </configuration>

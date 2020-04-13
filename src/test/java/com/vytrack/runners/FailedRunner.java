@@ -12,10 +12,10 @@ import org.junit.runner.RunWith;
                 "html:target/default-cucumber-reports",
                 "rerun:target/rerun.txt"
         },
-        tags = {"@login_with_outline_3"},                                     // ~ or not before tag ignore scenario
-        features = {"src/test/resources/features"},
+        features = {"@target/rerun.txt"},
         glue = {"com/vytrack/step_definitions"},
         dryRun = false
 )
-public class CukesRunner {
+
+public class FailedRunner {
 }

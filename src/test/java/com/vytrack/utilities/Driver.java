@@ -1,6 +1,7 @@
 package com.vytrack.utilities;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -9,7 +10,12 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.safari.SafariDriver;
+
+import java.net.MalformedURLException;
+import java.net.URL;
 
 public class Driver {
     private static WebDriver driver;
@@ -65,6 +71,15 @@ public class Driver {
                         throw new WebDriverException("You are operating Windows OS which doesn't support Safari");
                     WebDriverManager.getInstance(SafariDriver.class).setup();
                     driver = new SafariDriver();
+                    break;
+                case "remotechrome":
+                    DesiredCapabilities capabilities = new DesiredCapabilities().chrome();
+                    capabilities.setPlatform(Platform.ANY);
+                    try {
+                        driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), capabilities);
+                    } catch (MalformedURLException e) {
+                        e.printStackTrace();
+                    }
                     break;
                 default:
                     throw new RuntimeException("Illegal browser type!");
